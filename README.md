@@ -23,7 +23,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/MicheleBiena/autoraid">
-    <img src="program.png" alt="Program" width="1200" height="640">
+    <img src="program.png" alt="Program" width="1200" height="768">
   </a>
 <h3 align="center">AUTORAID</h3>
 
@@ -94,7 +94,7 @@ Install [sysbot-base](https://github.com/olliz0r/sys-botbase) and [ldn-mitm](htt
 
 ### Prerequisites
 
-Install [Python](https://www.python.org/) and set its install location on PATH environment variable. (You can do it automatically while installing)
+Install [Python](https://www.python.org/) (version >= 3.8) and set its install location on PATH environment variable. (You can do it automatically while installing)
 
 ### Installing
 
