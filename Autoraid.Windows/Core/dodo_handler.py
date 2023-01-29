@@ -136,9 +136,12 @@ def send_password(raid_pokemon, extra_info, log):
     log.insert_text("Sending password to dodo channel...\n")
     # 上传图片
     result = pic_upload(Path("Autoraid.Windows/Core/image.jpg"), "image.jpg")
+    print("upload result:", result["status"], result["message"])
     # 发消息
-    log.insert_text("upload result:" + result["status"] + " " + result["message"])
-    log.insert_text(send_pic(channelId=DODO_CHANNEL, pic_url=result["data"]["url"], width=result["data"]["width"], height=result["data"]["height"]))
+    log.insert_text("upload result:" + str(result["status"]) + " " + str(result["message"]) + "\n")
+    result = send_pic(channelId=DODO_CHANNEL, pic_url=result["data"]["url"], width=result["data"]["width"], height=result["data"]["height"])
+    print("send picture result:", result["status"], result["message"])
+    log.insert_text("send picture result:" + str(result["status"]) + " " + str(result["message"]) + "\n")
 
 def send_finished(raid_pokemon, message):
     send_text(DODO_CHANNEL, "完成宝可梦" + raid_pokemon + "狩猎," +message)

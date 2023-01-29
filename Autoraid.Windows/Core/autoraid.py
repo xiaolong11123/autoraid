@@ -50,6 +50,7 @@ class Autoraider:
             "telegram_alert": False,
             "preferentials": False,
             "snitch_mode": False,
+            "dodo_alert": False,
         }
 
         # tuple from alerts and alert_list

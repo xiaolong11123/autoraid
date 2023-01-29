@@ -169,7 +169,7 @@ def setup_raid(s, raid_pokemon, extra_info, alert_data, log):
     click(s, "A")  # affronta in gruppo
     sleep(2)
     click(s, "A")  # solo chi conosce la password
-    sleep(10)  # per uno screenshot adatto
+    sleep(15)  # per uno screenshot adatto
     screenshot(s)
     messageList = {}
     messageList = send_alerts(raid_pokemon, extra_info, log, alert_data)

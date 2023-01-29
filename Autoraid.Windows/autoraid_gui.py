@@ -68,6 +68,7 @@ class MainWindow(ctk.CTk):
                     self.boxes.telegram_var.get(),
                     self.boxes.preferentials_var.get(),
                     self.boxes.snitch_var.get(),
+                    self.boxes.dodo_var.get(),
                 ]
                 self.log.insert_text("Bot started\n")
 
