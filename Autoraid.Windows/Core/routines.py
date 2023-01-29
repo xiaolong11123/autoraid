@@ -5,6 +5,7 @@ from io import BytesIO
 import json
 from Core import telegram_handler as tel
 from Core import discord_handler as disc
+from Core import dodo_handler as dodo
 
 from pathlib import Path
 
@@ -56,6 +57,8 @@ def send_alerts(raid_pokemon, extra_info, log, alert_data):
         )
     if alert_data["discord_alert"]:
         disc.send_password(raid_pokemon, extra_info, log)
+    if alert_data["dodo_alert"]:
+        dodo.send_password(raid_pokemon, extra_info, log)
     return messageList
 
 

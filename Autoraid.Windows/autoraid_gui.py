@@ -18,7 +18,7 @@ class MainWindow(ctk.CTk):
 
         # change icon and title
         self.wm_title("Autoraid")
-        self.center_window(1200, 640)
+        self.center_window(1200, 740)
         self.iconbitmap(Path("Autoraid.Windows/orthworm.ico"))
         self.protocol("WM_DELETE_WINDOW", self.save_and_exit)
 

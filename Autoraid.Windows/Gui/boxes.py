@@ -12,6 +12,7 @@ class Boxes(ctk.CTkFrame):
         self.telegram_var = tk.StringVar(value="off")
         self.preferentials_var = tk.StringVar(value="off")
         self.snitch_var = tk.StringVar(value="off")
+        self.dodo_var = tk.StringVar(value="off")
         # checkboxes
         self.discord_alerts = ctk.CTkCheckBox(
             self,
@@ -49,11 +50,22 @@ class Boxes(ctk.CTkFrame):
             offvalue="off",
         )
 
+        self.dodo_alerts = ctk.CTkCheckBox(
+            self,
+            text="send dodo alerts",
+            command=self.dodo_event,
+            variable=self.dodo_var,
+            onvalue="on",
+            offvalue="off",
+        )
+
         # setting up grid
         self.discord_alerts.grid(row=0, column=0, padx=20, pady=20, sticky="nswe")
         self.telegram_alerts.grid(row=0, column=1, padx=10, pady=20, sticky="nswe")
-        self.preferentials.grid(row=0, column=2, padx=10, pady=20, sticky="nswe")
-        self.snitch_mode.grid(row=0, column=3, padx=10, pady=20, sticky="nswe")
+        self.dodo_alerts.grid(row=0, column=2, padx=10, pady=20, sticky="nswe")
+        self.preferentials.grid(row=1, column=0, padx=20, pady=20, sticky="nswe")
+        self.snitch_mode.grid(row=1, column=1, padx=10, pady=20, sticky="nswe")
+        
 
     def discord_event(self):
         pass
@@ -70,4 +82,7 @@ class Boxes(ctk.CTkFrame):
             self.snitch_mode.configure(state="normal")
 
     def snitch_event(self):
+        pass
+    
+    def dodo_event(self):
         pass

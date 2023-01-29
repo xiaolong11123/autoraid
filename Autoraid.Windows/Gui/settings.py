@@ -20,6 +20,8 @@ class Settings(ctk.CTkFrame):
         self.rowconfigure(4, weight=4)
         self.rowconfigure(5, weight=4)
         self.rowconfigure(6, weight=4)
+        self.rowconfigure(7, weight=4)
+        self.rowconfigure(8, weight=4)
 
         self.config = {
             "switch-ip": "192.168.1.1",
@@ -28,6 +30,9 @@ class Settings(ctk.CTkFrame):
             "telegram_bot_token": "token:xxxx",
             "telegram_preferential_ids": [11111, 22222],
             "telegram_chat_ids": [33333, 44444],
+            "dodo_clientId": "123",
+            "dodo_token": "456",
+            "dodo_channel": "789"
         }
 
         self.config_file = Path("Autoraid.Windows/config.json")
@@ -58,6 +63,27 @@ class Settings(ctk.CTkFrame):
         )
         self.token_entry = ctk.CTkEntry(self)
         self.token_entry.insert(0, self.config["telegram_bot_token"])
+
+        # dodo_clientId
+        self.dodo_clientId_label = ctk.CTkLabel(
+            self, text="Dodo clientId", justify="right"
+        )
+        self.dodo_clientId_entry = ctk.CTkEntry(self)
+        self.dodo_clientId_entry.insert(0, self.config["dodo_clientId"])
+        # dodo_token
+        self.dodo_token_label = ctk.CTkLabel(
+            self, text="Dodo token", justify="right"
+        )
+        self.dodo_token_entry = ctk.CTkEntry(self)
+        self.dodo_token_entry.insert(0, self.config["dodo_token"])
+        # dodo_channel
+        self.dodo_channel_label = ctk.CTkLabel(
+            self, text="Dodo channel", justify="right"
+        )
+        self.dodo_channel_entry = ctk.CTkEntry(self)
+        self.dodo_channel_entry.insert(0, self.config["dodo_channel"])
+
+
 
         # list items
         self.pref_ids_label = ctk.CTkLabel(
@@ -118,9 +144,34 @@ class Settings(ctk.CTkFrame):
             padx=padding,
             pady=padding,
         )
-        self.save_label.grid(row=6, column=0, sticky="nswe", padx=padding, pady=padding)
+        self.dodo_clientId_label.grid(row=6, column=0, sticky="nswe", padx=padding, pady=padding)
+        self.dodo_clientId_entry.grid(
+            row=6,
+            column=1,
+            sticky="nswe",
+            padx=padding,
+            pady=padding,
+        )
+        self.dodo_token_label.grid(row=7, column=0, sticky="nswe", padx=padding, pady=padding)
+        self.dodo_token_entry.grid(
+            row=7,
+            column=1,
+            sticky="nswe",
+            padx=padding,
+            pady=padding,
+        )
+        self.dodo_channel_label.grid(row=8, column=0, sticky="nswe", padx=padding, pady=padding)
+        self.dodo_channel_entry.grid(
+            row=8,
+            column=1,
+            sticky="nswe",
+            padx=padding,
+            pady=padding,
+        )
+
+        self.save_label.grid(row=9, column=0, sticky="nswe", padx=padding, pady=padding)
         self.save_button.grid(
-            row=6, column=1, sticky="nswe", padx=padding, pady=padding
+            row=9, column=1, sticky="nswe", padx=padding, pady=padding
         )
 
     def save_settings(self):
@@ -129,6 +180,9 @@ class Settings(ctk.CTkFrame):
         self.config["discord_webhook_url"] = self.webhook_entry.get()
         self.config["discord_embed_color"] = self.embedColor_entry.get()
         self.config["telegram_bot_token"] = self.token_entry.get()
+        self.config["dodo_clientId"] = self.dodo_clientId_entry.get()
+        self.config["dodo_token"] = self.dodo_token_entry.get()
+        self.config["dodo_channel"] = self.dodo_channel_entry.get()
         pref_ids_string = self.pref_ids_text.get("1.0", "end").rstrip()
         if len(pref_ids_string) > 0:
             self.config["telegram_preferential_ids"] = [
